@@ -90,7 +90,7 @@
         &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                    &trans &kp EQUAL &kp PLUS &kp FSLH &kp BSLH &kp PIPE &kp DEL
         &trans &trans &trans &trans &trans &trans                           &trans &trans                                &kp UNDER &kp MINUS &kp PIPE &trans &trans &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &kp LT &kp GT &trans &trans &trans
       >;
     };
     layer3 {
