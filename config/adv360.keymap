@@ -20,15 +20,6 @@
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
       };
-      hm_long: homerow_mods_long {
-          compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MODS_LONG";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          flavor = "tap-preferred";
-          bindings = <&kp>, <&kp>;
-      };
       layer_tap: layer_tap_hold {
           compatible = "zmk,behavior-hold-tap";
           label = "LAYER_TAP_HOLD";
@@ -49,7 +40,7 @@
         &hm GRAVE TILDE     &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
         &kp TAB   &kp Q     &kp W    &layer_tap 4 E &layer_tap 5 R &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P   &hm COLON SEMI 
         &kp ESC   &hm LGUI A &hm LALT S &hm LSHFT D &hm LCTRL F    &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &hm RCTRL J &hm RSHFT K &hm RALT L &hm LGUI COMMA  &kp DOT
-        &kp LSHFT &layer_tap 6 Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp QMARK &kp DQT &kp SQT &kp RSHFT
+        &kp LSHFT &layer_tap 6 Z &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp QMARK &kp DQT &kp SQT &kp RSHFT
         &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp LEFT &kp DOWN &kp UP &kp RIGHT &mo 2
       >;
     };
@@ -87,29 +78,29 @@
       display-name = "Layer2";
       bindings = <
         &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                    &trans &kp EQUAL &kp PLUS &kp FSLH &kp BSLH &kp PIPE &kp DEL
-        &trans &trans &trans &trans &trans &trans                           &trans &trans                                &kp UNDER &kp MINUS &kp PIPE &trans &trans &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &kp LT &kp GT &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &kp EQUAL &kp PLUS &kp PIPE &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                    &trans  &kp FSLH &kp BSLH &kp COLON &kp SEMI &trans &trans
+        &trans &trans &trans &trans &trans &trans                           &trans &trans                                 &kp UNDER &kp MINUS &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
       >;
     };
     layer3 {
       display-name = "Layer3";
       bindings = <
-        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                    &trans &kp LPAR &kp RPAR &kp LBRC &kp RBRC &kp LBKT &kp RBKT
-        &trans &trans &trans &trans &trans &trans                           &trans &trans                                &kp LT &kp GT &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans  &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &kp ESC &trans &kp TAB &trans                                                           &trans &kp LPAR &kp RPAR &kp COLON &kp SEMI &trans &trans
+        &trans &trans &trans &trans  &trans &trans &trans           &trans &trans &trans &trans                    &trans  &kp LBRC &kp RBRC &kp LT &kp GT &trans &trans
+        &trans &trans &trans &trans  &trans &trans                           &trans &trans                                 &kp LBKT &kp RBKT &kp GRAVE &kp TILDE &trans &trans
+        &trans &trans &trans &trans  &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
       >;
     };
     nums {
       display-name = "Nums";
       bindings = <
         &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &kp N7 &kp N8 &kp N9 &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                    &trans &kp N4 &kp N5 &kp N6 &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans                           &trans &trans                                &kp N1 &kp N2 &kp N3 &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &trans
+        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                    &trans &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &trans
+        &trans &trans &trans &trans &trans &trans                           &trans &trans                               &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans
         &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
       >;
     };
