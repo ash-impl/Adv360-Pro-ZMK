@@ -7,29 +7,126 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    behaviors {
-      #include "macros.dtsi"
-      #include "version.dtsi"
+  combos {
+    compatible = "zmk,combos";
 
-      hm: homerow_mods {
-          compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MODS";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          flavor = "tap-preferred";
-          bindings = <&kp>, <&kp>;
-      };
-      layer_tap: layer_tap_hold {
-          compatible = "zmk,behavior-hold-tap";
-          label = "LAYER_TAP_HOLD";
-          #binding-cells = <2>;
-          tapping-term-ms = <150>;
-          quick_tap_ms = <175>;
-          flavor = "tap-preferred";
-          bindings = <&mo>, <&kp>;
-      };
+    combo_eq {
+      timeout-ms = <30>;
+      key-positions = <22 23>;
+      bindings = <&kp EQUAL>;
     };
+    combo_plus {
+      timeout-ms = <30>;
+      key-positions = <23 24>;
+      bindings = <&kp PLUS>;
+    };
+    combo_pipe {
+      timeout-ms = <30>;
+      key-positions = <24 25>;
+      bindings = <&kp PIPE>;
+    };
+    combo_fslash {
+      timeout-ms = <30>;
+      key-positions = <40 41>;
+      bindings = <&kp FSLH>;
+    };
+    combo_bslash {
+      timeout-ms = <30>;
+      key-positions = <41 42>;
+      bindings = <&kp BSLH>;
+    };
+    combo_colon {
+      timeout-ms = <30>;
+      key-positions = <42 43>;
+      bindings = <&kp COLON>;
+    };
+    combo_semicolon {
+      timeout-ms = <30>;
+      key-positions = <43 44>;
+      bindings = <&kp SEMI>;
+    };
+    combo_underscore {
+      timeout-ms = <30>;
+      key-positions = <54 55>;
+      bindings = <&kp UNDER>;
+    };
+    combo_hyphen {
+      timeout-ms = <30>;
+      key-positions = <55 56>;
+      bindings = <&kp MINUS>;
+    };
+    combo_grave {
+      timeout-ms = <30>;
+      key-positions = <15 16>;
+      bindings = <&kp GRAVE>;
+    };
+    combo_tilde {
+      timeout-ms = <30>;
+      key-positions = <16 17>;
+      bindings = <&kp TILDE>;
+    };
+    combo_tab {
+      timeout-ms = <30>;
+      key-positions = <18 19>;
+      bindings = <&kp TAB>;
+    };
+    combo_esc {
+      timeout-ms = <30>;
+      key-positions = <32 33>;
+      bindings = <&kp ESC>;
+    };
+    combo_ampersand {
+      timeout-ms = <30>;
+      key-positions = <29 30 31>;
+      bindings = <&kp AMPS>;
+    };
+    combo_dollar {
+      timeout-ms = <30>;
+      key-positions = <30 31 32>;
+      bindings = <&kp DOLLAR>;
+    };
+    combo_star {
+      timeout-ms = <30>;
+      key-positions = <47 48>;
+      bindings = <&kp STAR>;
+    };
+    combo_percent {
+      timeout-ms = <30>;
+      key-positions = <48 49>;
+      bindings = <&kp PRCNT>;
+    };
+    combo_dot {
+      timeout-ms = <30>;
+      key-positions = <41 42 43 44>;
+      bindings = <&kp DOT>;
+    };
+  };
+
+  behaviors {
+    #include "macros.dtsi"
+    #include "version.dtsi"
+
+    hm: homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <150>;
+        require-prior-idle-ms = <100>;
+        quick_tap_ms = <175>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+    };
+    layer_tap: layer_tap_hold {
+        compatible = "zmk,behavior-hold-tap";
+        label = "LAYER_TAP_HOLD";
+        #binding-cells = <2>;
+        tapping-term-ms = <150>;
+        require-prior-idle-ms = <100>;
+        quick_tap_ms = <175>;
+        flavor = "tap-preferred";
+        bindings = <&mo>, <&kp>;
+    };
+  };
 
   keymap {
     compatible = "zmk,keymap";
@@ -37,11 +134,11 @@
     default_layer {
       display-name = "Base";
       bindings = <
-        &hm GRAVE TILDE     &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &layer_tap 4 E &layer_tap 5 R &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P   &hm COLON SEMI 
-        &kp ESC   &hm LGUI A &hm LALT S &hm LSHFT D &hm LCTRL F    &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &hm RCTRL J &hm RSHFT K &hm RALT L &hm LGUI COMMA  &kp DOT
-        &kp LSHFT &layer_tap 6 Z &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp QMARK &kp DQT &kp SQT &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp LEFT &kp DOWN &kp UP &kp RIGHT &mo 2
+        &kp DEL   &none    &none   &none   &none     &none &tog 1                                                           &mo 3 &none &none &none    &none   &none   &none
+        &none   &kp Q     &kp W     &kp E    &kp R    &kp T      &none                                                                   &none &kp Y  &kp U  &kp I     &kp O    &kp P   &none 
+        &none   &hm LGUI A &hm LALT S &hm LSHFT D &hm LCTRL F    &kp G  &none           &none &none &none   &none           &none &kp H  &hm RCTRL J &hm RSHFT K &hm RALT L &hm LGUI COMMA  &none
+        &none &layer_tap 5 Z &layer_tap 6 X    &kp C    &kp V      &kp B                            &none &none                           &kp N  &kp M  &kp QMARK &kp DQT &kp SQT &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &mo 4   &none  &none &kp ENTER &kp SPACE              &none &none &none &none &mo 2
       >;
     };
     keypad {
@@ -75,22 +172,12 @@
       >;
     };
     layer2 {
-      display-name = "Layer2";
-      bindings = <
-        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &kp EQUAL &kp PLUS &kp PIPE &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                    &trans  &kp FSLH &kp BSLH &kp COLON &kp SEMI &trans &trans
-        &trans &trans &trans &trans &trans &trans                           &trans &trans                                 &kp UNDER &kp MINUS &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
-      >;
-    };
-    layer3 {
-      display-name = "Layer3";
+      display-name = "Layer-2";
       bindings = <
         &trans &trans &trans &trans  &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &kp ESC &trans &kp TAB &trans                                                           &trans &kp LPAR &kp RPAR &kp COLON &kp SEMI &trans &trans
+        &trans &trans &trans &kp ESC &trans &kp TAB &trans                                                           &trans &kp LPAR &kp RPAR &trans &trans &trans &trans
         &trans &trans &trans &trans  &trans &trans &trans           &trans &trans &trans &trans                    &trans  &kp LBRC &kp RBRC &kp LT &kp GT &trans &trans
-        &trans &trans &trans &trans  &trans &trans                           &trans &trans                                 &kp LBKT &kp RBKT &kp GRAVE &kp TILDE &trans &trans
+        &trans &trans &trans &trans  &trans &trans                           &trans &trans                                 &kp LBKT &kp RBKT &trans &trans &trans &trans
         &trans &trans &trans &trans  &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
       >;
     };
@@ -99,8 +186,18 @@
       bindings = <
         &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans &trans &trans                                                           &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &trans
-        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                    &trans &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &trans
-        &trans &trans &trans &trans &trans &trans                           &trans &trans                               &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans
+        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                     &trans &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &trans
+        &trans &trans &trans &trans &trans &trans                           &trans &trans                               &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
+      >;
+    };
+    arrows {
+      display-name = "Arrows";
+      bindings = <
+        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans                                                           &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans                     &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+        &trans &trans &trans &trans &trans &trans                           &trans &trans                               &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans                        &trans &trans &trans &trans &trans
       >;
     };
