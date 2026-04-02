@@ -95,7 +95,12 @@
       key-positions = <48 49>;
       bindings = <&kp PRCNT>;
     };
-    combo_dot {
+    combo_dot_1 {
+      timeout-ms = <30>;
+      key-positions = <32 41>;
+      bindings = <&kp DOT>;
+    };
+    combo_dot_2 {
       timeout-ms = <30>;
       key-positions = <41 42 43 44>;
       bindings = <&kp DOT>;
