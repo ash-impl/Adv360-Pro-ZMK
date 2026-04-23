@@ -139,7 +139,7 @@
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp DEL   &none    &none   &none   &none     &none &tog 1                                                                   &mo 3 &none  &none       &none       &none       &none   &none
+        &kp DEL   &none    &none   &none   &none     &none &tog 1                                                                   &mo 3 &none  &none       &none       &none       &none   &kp F12
         &none   &kp Q     &kp W     &kp E    &kp R    &kp T      &none                                                              &none &kp Y  &kp U       &kp I       &kp O       &kp P   &none 
         &none   &hm LGUI A &hm LALT S &hm LSHFT D &hm LCTRL F    &kp G  &none                 &none &none &none     &none           &none &kp H  &hm RCTRL J &hm RSHFT K &hm RALT L  &hm LGUI COMMA  &none
         &none &layer_tap 5 Z &layer_tap 6 X    &kp C    &kp V      &kp B                            &none &none                           &kp N  &kp M       &kp QMARK   &kp DQT     &kp SQT &kp RSHFT
